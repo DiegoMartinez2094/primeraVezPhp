@@ -25,4 +25,16 @@ define("ES_VALIDO",true);
 define("ES_TEXTO", "hola mundo");
 
 
+
+/**Tipos de Datos */
+
+$logueado = true; /**Booleano */
+$numero = 5; /**Numbero*/
+$float = 0.1; /**flotante */
+$nombre = "Juan"; /**string*/
+$array = []; /**array*/
+
+
+
+
 ?>

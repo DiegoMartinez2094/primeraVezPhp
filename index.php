@@ -34,7 +34,17 @@ $float = 0.1; /**flotante */
 $nombre = "Juan"; /**string*/
 $array = []; /**array*/
 
+/**Numeros y Operadores */
 
+$numero1=1;$numero2=2;
+
+/** ARITMETICOS */
+$suma=$numero1+$numero2; /**se utiliza el + */
+$resta=$numero1-$numero; /**se utiliza el - */
+$multiplicacion=$numero1*$numero2; /**se utiliza el * */
+$division=$numero1/$numero2; /**se utiliza el / */
+$modulo=$numero1%$numero2; /**se utiliza el % es el reciduo de la division*/
+$exponenciacion=$numero1**$numero2; /**se utiliza el ** para elevar un numero a una potencia de otro */
 
 
 ?>

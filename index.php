@@ -7,8 +7,6 @@ $texto = "mundo";
 printf("hola %s",$texto);/**solo imprime una cadena de texto a la vez. %s indica que debe tomar ese lugar la variable */
 
 
-
-
 /**variables y constantes */
   
 $texto = "mundo"; /**variable tipo string*/
@@ -99,70 +97,130 @@ var_dump(in_array("pantalla",$pc));
 
 /**ordenar elementos de una array */
 
-$paraOrdenar = array(1, 2, 3, 4, 5);
+$paraOrdenar = [1, 2, 3, 4, 5];
 sort($paraOrdenar); /** de menor a mayor */
 rsort($paraOrdenar);/**de mayor a menor */
+
+
+
+
 
 /**METODOS ARRAYS */
 
 /**metodo  array_flip(); intercambia llaves por el contenido de cada una*/
 
-$nombres = array("Diego" => 1, "Fernando" => 2, "Carlos" => 3);
+$nombres = ["Diego" => 1, "Fernando" => 2, "Carlos" => 3];
 $flipped = array_flip($nombres);
 print_r($flipped); //Array ( [1] => Diego [2] => Fernando [3] => Carlos )
 
 /**metodo array_fill(): rellena un array este necesita 3 parametros 1=desde que posicion del array quiere que empiece a rellenar
- * 2=cuantos espacios quiere que rellene y el 3=elcontenido con el que va a rellenar
- */
-
+ * 2=cuantos espacios quiere que rellene y el 3=elcontenido con el que va a rellenar*/
 $fruta = array_fill(5, 6, 'pera');
 print_r($fruta);/** Matriz [5] => pera, [6] => pera,  [7] => pera, [8] => pera,  [9] => pera, [10] => pera
 */ 
 
 /* array_filter(): Filtra los elementos de un array utilizando una función de devolución de llamada. *////////////////////////////////////////////////////////////
+function impar($var)
+{ return $var & 1;}// Retorna siempre que el número entero sea impar   
+function par($var)
+{return !($var & 1);}// Retorna siempre que el número entero sea par
+$arr1 = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+$arr2 = [6, 7, 8, 9, 10, 11, 12];
+echo "Impar :\n";
+print_r(array_filter($arr1, "impar"));
+echo "Par:\n";
+print_r(array_filter($arr2, "par"));
+/**Impar : Array ( [a] => 1 [c] => 3 [e] => 5 ) Par: Array ( [0] => 6 [2] => 8 [4] => 10 [6] => 12 ) */
 
 
 /*array_map(): se define una funcion que va a ser aplicable a cada elemento del array y devolverá un nuevo array con el resultado*/
 function cuadrado($n)
-{
- return ($n * $n);
-}
-
+{return ($n * $n);}
 $a = [1, 2, 3, 4,];
-$b = array_map('cuadrado', $a);
-print_r($b);/**$b=[1, 4, 9, 16] */
+print_r(array_map('cuadrado', $a));/**$b=[1, 4, 9, 16] */
 
 /**array_reduce(): define una funcion para aplicarle a un conjunto de elementos uno tras otro */
-
 function suma($acumulador, $num) /**DEFINIMOS la funcion */
-{
- $acumulador += $num;
- return $acumulador;
-}
-
-$conjunto= array(1,2,3,4);
-
-$result_sum = array_reduce($conjunto,'suma');
-print_r($result_sum);/**result_sum=10*/
+{$acumulador += $num;
+ return $acumulador;}
+$conjunto= [1,2,3,4];
+print_r(array_reduce($conjunto,'suma'));/**result_sum=10*/
 
 /**array_key_exists(): se utiliza solo en arrays asociativos y comprueba si exite un key en especifico retorna TRUE o FALSE */
-$nombres2 = array("Diego" => 1, "Fernando" => 2, "Carlos" => 3);
+$nombres2 = ["Diego" => 1, "Fernando" => 2, "Carlos" => 3];
 $existKey= array_key_exists("Diego",$nombres2); /** se ingresaprimero la key a buscar seguido del array donde la va a buscar */
 print_r($existKey); /**TRUE*/
 
 /**in_array(): comprueba que exista un valor esprecifico en el array y devuelve TRUE o FALSE */
-
 $cities=["Bucaramanga", "Giron", "piedecuesta"];
 if (in_array("bucaramanga",$city)){ /**se ingres a primero el elemento a buscar, seguido del array donde lo buscaremos, esta funcion retorna un TRUE o FALSE */
-    echo( "si exite la ciudad Bucaramanga en el array");
-}
+    echo( "si exite la ciudad Bucaramanga en el array");}
 
 /**array_rand(): Devuelve una o varias claves aleatorias de un array. */
-$nombres4 = array("Diego" => 1, "Fernando" => 2, "Carlos" => 3);
-$randed = array_rand($nombres4);
-print_r($randed); /**devue: "Diego" */
+$nombres4 = ["Diego" => 1, "Fernando" => 2, "Carlos" => 3];
+print_r(array_rand($nombres4)); /**devue: "Diego" */
 
 /**array_unique(): Elimina los valores duplicados de un array. */
+$letras=["a","b","c","a","c","a"];
+print_r(array_unique($letras));/**en este caso imprimirá: Matriz ([0] => a [2] => b [3] => c ) */
 
+/**array_intersect():se utiliza para intersectar dos o más arrays y devuelve los valores que tienen en común */
+$array1 = [2, 4, 6, 8, 10, 12];
+$array2 = [1, 2, 3, 4, 5, 6];
+print_r(array_intersect($array1, $array2)); /**imprime: Matriz ( [0] => 2 [1] => 4 [2] => 6 ) */ 
+
+/**array_diff(): a difirencia del anteior (intersect) el diff devuelve los valores del primer array que no están en los otros arrays */
+$array3 = [2, 4, 6, 8, 10, 12];
+$array4 = [1, 2, 3, 4, 5, 6];
+print_r(array_diff($array3, $array4)); /**imprime: Matriz ([3] => 8  [4] => 10  [5] => 12) */
+
+/**array_push(): Agrega  elementos al final de un array. */
+$array5 = [1, 2, 3, 4, 5, 6];
+array_push($array5, 7, 8); 
+print_r($array5);/**imprime: [1, 2, 3, 4, 5, 6, 7] */
+
+/**array_pop():  elimina el elemento en ultima posicion */
+$array6 = [1, 2, 3, 4, 5, 6];
+array_pop($array6);
+print_r($array6); /**imprime: [1, 2, 3, 4, 5,]  sin el 6*/
+
+/**array_reverse(): inviert el orden de los elementos en un array, el ultimo de primero... */
+
+$array7 = [1, 2, 3, 4, 5, 6];
+$array8 = array_reverse($array7);
+print_r($array8); /**imprime: [6, 5, 4, 3, 2, 1] */
+
+/**array_sum(): solo para arrays numericos, devuelve la suma de sus elementos */
+$array9 = [1, 2, 3, 4,];
+print_r( array_sum($array9)); /**imprime: 10 */
+
+/**array_product(): solo para arrays numericos, devuelve su producto */
+$array11 = [1, 2, 3, 4,];
+print_r(array_product($array11)); /**imprime: 24 */
+
+/**array_chunk(): Divide un array en las partes que quieras fragmentos más pequeños. */
+$array12=[1, 2, 3, 4, 5];
+$array13 = array_chunk($array12, 3); /**ingresamos el array a dividir, seguido de la cantidad de elementos que tendrá cada division */
+print_r($array13); /**imprime:Array ( [0] => Array ( [0] => 1 [1] => 2 [2] => 3 )         [1] => Array ( [0] => 4 [1] => 5 ) )  */
+
+/**array_keys(): solo para arrays asociativos, devuelve todas las llaves del array*/
+$autos = [1 => "BMW", 2 => "AUDI", 3 => "Mercedes"];
+print_r(array_keys($autos)); /**Devuelve: Array ( [0] => 1 [1] => 2 [2] => 3 ) solo las keys */
+
+/**array_values(): solo para arrays asociativos Devuelve todos los valores de un array. */
+$motos = [1 => "kawazaki", 2 => "Yamaha", 3 => "Honda"];
+print_r(array_values($motos)); /**imprime: Array ( [0] => kawazaki [1] => Yamaha [2] => Honda ) */
+
+/**array_walk(): Aplica una función de devolución de llamada a cada elemento de un array. */
+
+$lenguajes=[1=>"PHP", 2=>"JAVA", 3=>"JS", 4=>"PYTHON"];
+function mostrar($elemento2, $clave) /**Funcion que imprime la key y su respectivo contenido en cada elemento del array */
+{ echo "$clave. $elemento2<br />\n";}
+array_walk($lenguajes, 'mostrar'); /**pasamos el array, con la funcion que vamos a aplicarle 
+Muestra: 
+1. PHP
+2. JAVA
+3. JS
+4. PYTHON */ 
 
 ?>

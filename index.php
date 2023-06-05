@@ -239,6 +239,63 @@ $nombre="Diego";
    print_r(false);
  }
 
- 
+ /**ESTRUCTURAS DE CONTROL */
+
+ /**if este ciclo se cumple mientras que la condicion que tiene sea TRUE*/
+ $a=1;
+ if($a<5){ //se traduce: si $a es menor a 5 haga:..., 
+    echo"la variable es menor a 5";
+ }
+ else if ($a=5){//se traduce a sino, haga..
+    echo"la variable es menor a 5";
+ }
+ else{//por ultimo si las condiciones anteriores no se confirmaron entonces haga... esta ultima no necesita condicion
+     echo"la variable es menor a 5";
+  }
+
+
+  /**Swith permite ejectar varios bloques de codigo dependiendo el valor de una variable*/
+  
+  /**en este caso dependiendo el valor de la variable numero, me va a imprimir su valor en dado caso */
+  $numero=1;
+
+  switch($numero){
+    case 1:
+      echo "1";
+      break;
+    case 2:
+      echo "2";
+      break;
+    case 3:
+      echo "3";
+      break;
+    case 4:
+      echo "4";
+      break;
+    default:
+      echo "default";
+  }
+
+  /**Estructuras Repetitivas */
+  
+  /**Bucle While: en este ciclo necesitamos de una variable iniciadora para que entre a hacer el ciclo*/
+  $años=0;
+  while($años<=18){
+      $años++; //**quiere decir que mientras el contador de años sea menor a 18 el ciclo se recorrerá */
+    echo"menor de edad";  
+    }
+
+    /**Do While: para este caso primero se realiza una operacion y luego verifica para saber si continua en el ciclo o se sale */
+    $a=0;
+    do{
+      $a++; //**quiere decir que mientras el contador de años sea menor a 18 el ciclo se recorrerá */
+    }while($a<=18);
+
+   /**For each  este bucle itera sobre arrays una funcion especifica*/
+   $animales =["perro", "gato", "ave"];
+   foreach($animales as $animal):
+      echo $animal; //**este bucle nos mostrará los elementos del array uno a uno */
+   endforeach;
+
 
 ?>

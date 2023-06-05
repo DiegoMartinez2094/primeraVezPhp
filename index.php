@@ -297,5 +297,17 @@ $nombre="Diego";
       echo $animal; //**este bucle nos mostrará los elementos del array uno a uno */
    endforeach;
 
+//*FUNCIONES*//
+
+//**Las funciones se usan para encapsular unbloque de codigo el cual puede ser llamado y utilizado en calquier parte del codigo */
+
+/**funciones que no retornan valor void */
+declare(strict_types=1);
+function sumar (int $numero1 =0, array $numero2 ):void {
+    echo $numero1 + $numero2;
+    }
+sumar(10, []);
+
+/**funciones que retornan valor*/
 
 ?>

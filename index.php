@@ -302,12 +302,19 @@ $nombre="Diego";
 //**Las funciones se usan para encapsular unbloque de codigo el cual puede ser llamado y utilizado en calquier parte del codigo */
 
 /**funciones que no retornan valor void */
-declare(strict_types=1);
-function sumar (int $numero1 =0, array $numero2 ):void {
-    echo $numero1 + $numero2;
+declare(strict_types=1); //strict_types lo utilizamos para indicar que el codigo va a tener una estructura definida por el programador 
+function sumar (int $numero1 =0, array $numero2 ):void {//por eso indicamos antes de cada variable, que tipo de variable es: int, string, array etc...
+  /**el void indica que es una funcion sin retorno  */  
+  echo $numero1 + $numero2;
     }
 sumar(10, []);
 
-/**funciones que retornan valor*/
+/**funciones que retornan valor: para estas funciones utilizamos la parabra RETURN para indicar que retorna un dato*/
+ function sum(int $a, int $b):int{
+     return $a+$b;
+   }
+   sum(2,4); //llamamos a la funcion suma y le pasamos dos argumentos 
+   //parametro: nombre de una variable
+   //argumento: el valor de la variable
 
 ?>

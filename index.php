@@ -317,4 +317,42 @@ sumar(10, []);
    //parametro: nombre de una variable
    //argumento: el valor de la variable
 
+
+   /**PROGRAMACION ORIENTADA A OBJETOS */
+/**se debe crear una clase: es una plantilla de donde crearemos uno o varios objetos  */
+   class Persona { /**Clase Persona */
+    /**se crean unas caracteristicas de la clase, llamadas atributos */
+    public $color;/**public: accesebles desde cualquier lugar */
+    private $nombre; /**private: solo son accesibles dentro de la misma clase donde se definen */
+    protected $edad;/**protected: son accesibles desde la misma clase y las clases heredadas, no desde afuera */
+    private static $nombreAux; /**metodos estaticos pertenecen a la clase y no a la instancia, se pueden llamar directamente sin crear un objeto */
+    public function __construct ($color,$nombre, $edad) { /**el contructor recibe los atributos para la creacion  */
+      $this->color = $color;
+      $this->nombre = $nombre;
+      $this->edad = $edad;
+      self:: $nombreAux=$nombre; /**static no puede usar this */
+   }
+     public function getNombre(){ 
+    return $this->nombre;
+   }
+   public function setNombre($nombre){
+    $this->nombre = $nombre;
+   }
+   public function getEdad(){ 
+    return $this->edad;
+   }
+   public function setEdad($edad){
+    $this->edad = $edad;
+   }
+
+   private function saludar(){ /**los metodos o funciones: son acciones o comportamientos de un objeto  */
+    echo "hola, mi nombre es". $this->nombre;
+   }
+   public static function saludar2(){
+    return 'hola como estas'.self::$nombreAux;
+   }
+  }
+  /** instanciar una clase, CREAR UN OBJETO*/
+  $alumno = new Persona ('amarillo','jose',17); /**se le  dan los argumentos en orden a la creaccion en el constructor */
+
 ?>

@@ -355,4 +355,46 @@ sumar(10, []);
   /** instanciar una clase, CREAR UN OBJETO*/
   $alumno = new Persona ('amarillo','jose',17); /**se le  dan los argumentos en orden a la creaccion en el constructor */
 
+/**INTERFASES:
+  Es un conjunto de emtodos que una clase debe usar obligatoriamente al usar la interfase 
+ ejemplo*/
+
+ /**para la herencia entre interfases se utiliza la palabra: extends */
+
+ /**la Herencia: es cuando una clase hija modifica un metodo heredado de su clase padre  */
+
+/**AUTOLOAD
+ *  permite cargar automaticamente las clases 
+ */
+  function my_autoload($clase) { /**metodo para definicion de carga auto de clases */
+    require__DIR__./clases/.$clase.'.php';
+  }
+  spl_autoload_register('my_autoload');
+
+  /**namespaces */
+ /**utilizamos para importar archivos con una ruta corta llamada alias */
+/**--------------------------------------------------------------------------------------------- */
+ namespace App; /**se usa en el inicio del archivo, solo puede haber uno por archivo */
+ 
+ class Detalles{
+  public function__contructor(){
+    echo"hola";
+  }
+ }
+ /**--------------------------------------------------------------------------------------------- */
+
+ /**en el archivo que vamos a usar la clase Detalles -> */
+
+  use App\Detalles;
+  /**----------------------------------------------------------------------- */
+
+
+  /**COMPOSER
+   * es un administrador de dependencias qeu permite instalar librerias de terceros 
+   * 
+   */
+
+
+
+
 ?>
